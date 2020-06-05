@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package Flow;
+
+option java_package = "com.changwu.FlowCenter";
+option java_outer_classname = "FlowProtos";
+
+
+message Flow {
+   string flowType = 1;
+   map<string, string> roleMap = 2;
+   string applicate = 3;
+   int32  departmentId = 4;
+   int32  recordId  = 5;
+}
+
+
