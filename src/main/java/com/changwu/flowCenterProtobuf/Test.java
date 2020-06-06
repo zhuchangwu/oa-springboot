@@ -1,4 +1,4 @@
-package com.changwu.FlowCenterProtobuf;
+package com.changwu.flowCenterProtobuf;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 

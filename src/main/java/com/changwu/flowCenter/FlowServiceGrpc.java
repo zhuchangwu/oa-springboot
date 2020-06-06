@@ -1,18 +1,11 @@
-package com.changwu.FlowCenter;
+package com.changwu.flowCenter;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
 import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
@@ -30,29 +23,29 @@ public final class FlowServiceGrpc {
   public static final String SERVICE_NAME = "Flow.FlowService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.changwu.FlowCenter.FlowProtos.Flow,
-      com.changwu.FlowCenter.FlowProtos.Response> getCreateFlowMethod;
+  private static volatile io.grpc.MethodDescriptor<com.changwu.flowCenter.FlowProtos.Flow,
+      com.changwu.flowCenter.FlowProtos.Response> getCreateFlowMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateFlow",
-      requestType = com.changwu.FlowCenter.FlowProtos.Flow.class,
-      responseType = com.changwu.FlowCenter.FlowProtos.Response.class,
+      requestType = com.changwu.flowCenter.FlowProtos.Flow.class,
+      responseType = com.changwu.flowCenter.FlowProtos.Response.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.changwu.FlowCenter.FlowProtos.Flow,
-      com.changwu.FlowCenter.FlowProtos.Response> getCreateFlowMethod() {
-    io.grpc.MethodDescriptor<com.changwu.FlowCenter.FlowProtos.Flow, com.changwu.FlowCenter.FlowProtos.Response> getCreateFlowMethod;
+  public static io.grpc.MethodDescriptor<com.changwu.flowCenter.FlowProtos.Flow,
+      com.changwu.flowCenter.FlowProtos.Response> getCreateFlowMethod() {
+    io.grpc.MethodDescriptor<com.changwu.flowCenter.FlowProtos.Flow, com.changwu.flowCenter.FlowProtos.Response> getCreateFlowMethod;
     if ((getCreateFlowMethod = FlowServiceGrpc.getCreateFlowMethod) == null) {
       synchronized (FlowServiceGrpc.class) {
         if ((getCreateFlowMethod = FlowServiceGrpc.getCreateFlowMethod) == null) {
           FlowServiceGrpc.getCreateFlowMethod = getCreateFlowMethod =
-              io.grpc.MethodDescriptor.<com.changwu.FlowCenter.FlowProtos.Flow, com.changwu.FlowCenter.FlowProtos.Response>newBuilder()
+              io.grpc.MethodDescriptor.<com.changwu.flowCenter.FlowProtos.Flow, com.changwu.flowCenter.FlowProtos.Response>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateFlow"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.changwu.FlowCenter.FlowProtos.Flow.getDefaultInstance()))
+                  com.changwu.flowCenter.FlowProtos.Flow.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.changwu.FlowCenter.FlowProtos.Response.getDefaultInstance()))
+                  com.changwu.flowCenter.FlowProtos.Response.getDefaultInstance()))
               .setSchemaDescriptor(new FlowServiceMethodDescriptorSupplier("CreateFlow"))
               .build();
         }
@@ -114,8 +107,8 @@ public final class FlowServiceGrpc {
 
     /**
      */
-    public void createFlow(com.changwu.FlowCenter.FlowProtos.Flow request,
-        io.grpc.stub.StreamObserver<com.changwu.FlowCenter.FlowProtos.Response> responseObserver) {
+    public void createFlow(com.changwu.flowCenter.FlowProtos.Flow request,
+        io.grpc.stub.StreamObserver<com.changwu.flowCenter.FlowProtos.Response> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateFlowMethod(), responseObserver);
     }
 
@@ -125,8 +118,8 @@ public final class FlowServiceGrpc {
             getCreateFlowMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.changwu.FlowCenter.FlowProtos.Flow,
-                com.changwu.FlowCenter.FlowProtos.Response>(
+                com.changwu.flowCenter.FlowProtos.Flow,
+                com.changwu.flowCenter.FlowProtos.Response>(
                   this, METHODID_CREATE_FLOW)))
           .build();
     }
@@ -151,8 +144,8 @@ public final class FlowServiceGrpc {
 
     /**
      */
-    public void createFlow(com.changwu.FlowCenter.FlowProtos.Flow request,
-        io.grpc.stub.StreamObserver<com.changwu.FlowCenter.FlowProtos.Response> responseObserver) {
+    public void createFlow(com.changwu.flowCenter.FlowProtos.Flow request,
+        io.grpc.stub.StreamObserver<com.changwu.flowCenter.FlowProtos.Response> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getCreateFlowMethod(), getCallOptions()), request, responseObserver);
     }
@@ -177,7 +170,7 @@ public final class FlowServiceGrpc {
 
     /**
      */
-    public com.changwu.FlowCenter.FlowProtos.Response createFlow(com.changwu.FlowCenter.FlowProtos.Flow request) {
+    public com.changwu.flowCenter.FlowProtos.Response createFlow(com.changwu.flowCenter.FlowProtos.Flow request) {
       return blockingUnaryCall(
           getChannel(), getCreateFlowMethod(), getCallOptions(), request);
     }
@@ -202,8 +195,8 @@ public final class FlowServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.changwu.FlowCenter.FlowProtos.Response> createFlow(
-        com.changwu.FlowCenter.FlowProtos.Flow request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.changwu.flowCenter.FlowProtos.Response> createFlow(
+        com.changwu.flowCenter.FlowProtos.Flow request) {
       return futureUnaryCall(
           getChannel().newCall(getCreateFlowMethod(), getCallOptions()), request);
     }
@@ -229,8 +222,8 @@ public final class FlowServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_FLOW:
-          serviceImpl.createFlow((com.changwu.FlowCenter.FlowProtos.Flow) request,
-              (io.grpc.stub.StreamObserver<com.changwu.FlowCenter.FlowProtos.Response>) responseObserver);
+          serviceImpl.createFlow((com.changwu.flowCenter.FlowProtos.Flow) request,
+              (io.grpc.stub.StreamObserver<com.changwu.flowCenter.FlowProtos.Response>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -254,7 +247,7 @@ public final class FlowServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.changwu.FlowCenter.FlowProtos.getDescriptor();
+      return com.changwu.flowCenter.FlowProtos.getDescriptor();
     }
 
     @java.lang.Override
