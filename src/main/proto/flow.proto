@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package Flow;
 
-option java_package = "com.changwu.FlowCenter";
+option java_package = "com.changwu.flowCenter";
 option java_outer_classname = "FlowProtos";
 
 // 定义消息，消息为service中发送或者是接受的内容
@@ -19,7 +19,30 @@ message Response{
   string responseMsg = 2;
 }
 
+message ResponseList{
+  repeated Response ResponseList = 1;
+}
+
+message StreamRequest{
+  string request_info = 1;
+}
+
+message StreamResponse{
+  string response_info = 1;
+}
+
+
 // 服务：服务中有方法可以进行rpc过程
 service FlowService{
-   rpc CreateFlow(Flow) returns (Response);
+  // 服务端返回obj
+  rpc CreateFlow(Flow) returns (Response);
+
+  // 服务端返回steam
+  rpc CreateFlow2(Flow) returns (stream Response);
+
+  // 客户端发送stream，服务端返回obj列表
+  rpc CreateFlow3(stream Flow)returns (ResponseList);
+
+  // client和server通过stream交互
+  rpc CreateFlow4(stream StreamRequest) returns(StreamResponse);
 }
