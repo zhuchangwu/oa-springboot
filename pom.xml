@@ -50,6 +50,13 @@
             <artifactId>protobuf-java-util</artifactId>
             <version>3.11.0</version>
         </dependency>
+        <!--netty-->
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.36.Final</version>
+        </dependency>
 
         <!--grpc-->
         <dependency>
@@ -80,6 +87,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
 
     </dependencies>
 
