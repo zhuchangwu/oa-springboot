@@ -1,7 +1,7 @@
-package com.changwu.questionnaire.security;
+package com.changwu.security;
 
-import com.changwu.questionnaire.utils.JsonUtils;
-import com.changwu.questionnaire.vo.JSONResult;
+import com.changwu.utils.JsonUtils;
+import com.changwu.vo.JSONResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.JwtException;
@@ -19,8 +19,6 @@ import java.io.IOException;
  * 过滤所有的请求, 并将所有的请求传递到JwtTokenProvider中进一步处理
  * 将被添加到过滤的最前面
  *
- * @Author: Changwu
- * @Date: 2019-12-30 17:02
  */
 public class JwtTokenFilter extends OncePerRequestFilter {
 
@@ -43,7 +41,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         String method = httpServletRequest.getMethod();
         if ("OPTIONS".equals(method)) {
             httpServletResponse.setContentType("application/json;charset=utf-8");
-            httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+            httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:9527");
             httpServletResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
             httpServletResponse.setHeader("Access-Control-Allow-Headers","Origin,x-token, X-Requested-With, Content-Type, Accept, Authrication");
             httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
@@ -68,7 +66,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             httpServletResponse.setStatus(200);
             // todo  等前端写当相关的方法时再进行验证
             if (e instanceof ExpiredJwtException) {
-                httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+                httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:9527");
                 httpServletResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE");
                 httpServletResponse.setHeader("Access-Control-Allow-Headers","Origin,x-token, X-Requested-With, Content-Type, Accept, Authrication");
                 httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");

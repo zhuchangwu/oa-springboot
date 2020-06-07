@@ -1,7 +1,7 @@
-package com.changwu.questionnaire.security;
+package com.changwu.security;
 
-import com.changwu.questionnaire.utils.JsonUtils;
-import com.changwu.questionnaire.vo.JSONResult;
+import com.changwu.utils.JsonUtils;
+import com.changwu.vo.JSONResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -33,10 +33,10 @@ public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
         // 用户名或密码错误
         if (e instanceof BadCredentialsException) {
-            httpServletResponse.getWriter().write(mapper.writeValueAsString(JsonUtils.objectToJson(new JSONResult(50008,"用户名或密码错误"))));
+            httpServletResponse.getWriter().write(mapper.writeValueAsString(JsonUtils.objectToJson(new JSONResult(50008,"用户名或密码错误",null))));
         }
         if (e instanceof InsufficientAuthenticationException) {
-            httpServletResponse.getWriter().write(mapper.writeValueAsString(JsonUtils.objectToJson(new JSONResult(50012,"您没有相关权限, 请联系管理员"))));
+            httpServletResponse.getWriter().write(mapper.writeValueAsString(JsonUtils.objectToJson(new JSONResult(50012,"您没有相关权限, 请联系管理员",""))));
         }
         System.out.println("MyAuthenticationEntryPoint  invoke");
         System.out.println("MyAuthenticationEntryPoint  exception "+e.getClass());

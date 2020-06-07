@@ -1,31 +1,24 @@
-package com.changwu.questionnaire.bean;
+package com.changwu.bean;
 
-import com.changwu.questionnaire.typeEnum.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
-/**
- * @Author: Changwu
- * @Date: 2019-12-27 22:48
- */
 @Entity
-@Table(name = "user")
-@ToString
+@Table(name="user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
-    //@Size(min = 6, max = 255, message = "Mininum username length: 6 character")
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
+    @Column(name = "department", unique = true, nullable = false)
+    private String department;
+
     @JsonIgnore
-   // @Size(min = 8, message = "Mininum password length: 8 character")
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -33,23 +26,11 @@ public class User {
     @Column(name = "name", columnDefinition = "varchar(64) default ''")
     private String name;
 
-    // 联系方式
-    @Column(name = "phone", unique = true, columnDefinition = "varchar(12)")
-    private String phone;
-
-    // 联系方式
-    @Column(name = "email", columnDefinition = "varchar(64) default ''")
-    private String email;
-
     // 状态
     // 0: 正常
     // 1: 禁用
     @Column(name = "status", columnDefinition = "int(1) default 0")
     private int status;
-
-    // 头像
-    @Column(name = "avatar", columnDefinition = "varchar(128) default ''")
-    private String avatar;
 
     // 角色列表
     @Column(name = "roles", columnDefinition = "varchar(64) default ''")
@@ -58,18 +39,27 @@ public class User {
     @Transient
     private List<Role> roles;
 
-
     public User() {
+
+    }
+    public User(String name,List<Role> roles) {
+        this.name=name;
+        this.roles=roles;
     }
 
-  //  @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private Set<Paper> papers ;
+    public User(String username,String password,String name, int status) {
+        this.username = username;
+        this.password=password;
+        this.name=name;
+        this.status=status;
+    }
 
-    public User(String name, String avatar, List<Role> roles) {
-        this.name = name;
-        this.avatar = avatar;
-        this.roles = roles;
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
     public Integer getId() {
@@ -104,44 +94,12 @@ public class User {
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public int getStatus() {
         return status;
     }
 
     public void setStatus(int status) {
         this.status = status;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Set<Paper> getPapers() {
-        return papers;
-    }
-
-    public void setPapers(Set<Paper> papers) {
-        this.papers = papers;
     }
 
     public String getRolesDto() {

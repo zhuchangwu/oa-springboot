@@ -1,4 +1,4 @@
-package com.changwu.questionnaire.vo;
+package com.changwu.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

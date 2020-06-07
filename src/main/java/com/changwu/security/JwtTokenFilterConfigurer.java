@@ -1,4 +1,4 @@
-package com.changwu.questionnaire.security;
+package com.changwu.security;
 
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

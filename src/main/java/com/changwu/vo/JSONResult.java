@@ -1,4 +1,4 @@
-package com.changwu.questionnaire.vo;
+package com.changwu.vo;
 
 
 import java.io.Serializable;
@@ -64,7 +64,7 @@ public class JSONResult implements Serializable {
 
     public JSONResult(Integer code, String msg, Object data) {
         this.code = code;
-        this.token = msg;
+        this.msg = msg;
         this.data = data;
     }
 

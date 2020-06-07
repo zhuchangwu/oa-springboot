@@ -1,8 +1,7 @@
-package com.changwu.questionnaire.security;
+package com.changwu.security;
 
-import com.changwu.questionnaire.bean.User;
-import com.changwu.questionnaire.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.changwu.bean.User;
+import com.changwu.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,8 +14,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyUserDetailService implements UserDetailsService {
 
-    @Autowired
-    UserRepository userRepository;
+    final UserRepository userRepository;
+
+    public MyUserDetailService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

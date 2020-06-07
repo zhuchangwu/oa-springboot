@@ -1,4 +1,4 @@
-package com.changwu.questionnaire.utils;
+package com.changwu.utils;
 
 import java.util.List;
 

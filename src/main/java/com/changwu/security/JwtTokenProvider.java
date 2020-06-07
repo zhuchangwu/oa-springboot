@@ -1,7 +1,7 @@
-package com.changwu.questionnaire.security;
+package com.changwu.security;
 
 
-import com.changwu.questionnaire.typeEnum.Role;
+import com.changwu.bean.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -42,7 +42,7 @@ public class JwtTokenProvider {
         this.secretKey = Base64.getEncoder().encodeToString(this.secretKey.getBytes());
     }
 
-    public String createToken(String username, List<Role> roleList,Integer userId){
+    public String createToken(String username, List<Role> roleList, Integer userId){
         // subject为用户名
         Claims claims = Jwts.claims().setSubject(username); // 往里面添加一个键值对, key=auth 值为user的拥有的所有的角色的集合
         claims.setId(String.valueOf(userId));

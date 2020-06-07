@@ -1,4 +1,4 @@
-package com.changwu.questionnaire.security;
+package com.changwu.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,17 +12,16 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * @Author: Changwu
- * @Date: 2019-12-30 18:32
- */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private JwtTokenProvider jwtTokenProvider;
+    private final JwtTokenProvider jwtTokenProvider;
+
+    public WebSecurityConfig(JwtTokenProvider jwtTokenProvider) {
+        this.jwtTokenProvider = jwtTokenProvider;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -53,6 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 添加路由
         http.authorizeRequests()
                 .antMatchers("/user/login").permitAll()
+                .antMatchers("/user/getInfo").permitAll()
                 .antMatchers("/user/logout").permitAll()
                 .anyRequest().authenticated();
 
