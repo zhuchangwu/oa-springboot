@@ -1,5 +1,6 @@
 package com.changwu.service;
 
+import com.changwu.bean.Role;
 import com.changwu.bean.User;
 import com.changwu.repository.UserRepository;
 import com.changwu.security.JwtTokenProvider;
@@ -7,6 +8,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -31,6 +35,15 @@ public class UserService {
     public String login(String username, String password) {
         manager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         User user = userRepository.findUserByUsername(username);
+        List<Role> list = new ArrayList<>();
+        if (user.getRolesDto().equals("staff")) {
+            list.add(Role.ROLE_STAFF);
+        } else if (user.getRolesDto().equals("manager")) {
+            list.add(Role.ROLE_MANAGER);
+        } else if (user.getRolesDto().equals("boss")) {
+            list.add(Role.ROLE_BOSS);
+        }
+        user.setRoles(list);
         return jwtTokenProvider.createToken(username, user.getRoles(), user.getId());
     }
 

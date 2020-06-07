@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     // 处理异常
-    MyAuthenticationEntryPoint build(){
+    public MyAuthenticationEntryPoint build(){
         return new MyAuthenticationEntryPoint();
     }
 

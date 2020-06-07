@@ -15,8 +15,12 @@ public class User {
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
-    @Column(name = "department", unique = true, nullable = false)
+    @Column(name = "department",  nullable = false)
     private String department;
+
+    @Column(name = "parentrole", nullable = false)
+    private String parentrole;
+
 
     @JsonIgnore
     @Column(name = "password", nullable = false)
@@ -64,6 +68,14 @@ public class User {
 
     public Integer getId() {
         return id;
+    }
+
+    public String getParentrole() {
+        return parentrole;
+    }
+
+    public void setParentrole(String parentrole) {
+        this.parentrole = parentrole;
     }
 
     public void setId(Integer id) {
