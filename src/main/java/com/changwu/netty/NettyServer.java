@@ -35,7 +35,9 @@ public class NettyServer {
     }
 
     public void start() throws InterruptedException {
-            this.serverBootstrap.bind(8084).sync();
+        System.err.println( "this.serverBootstrap.bind(8084).sync();");
+        this.serverBootstrap.bind(8084).sync();
+        System.err.println( "this.serverBootstrap.bind(8084).sync();");
     }
 
 }

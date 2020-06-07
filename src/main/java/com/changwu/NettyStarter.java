@@ -13,7 +13,7 @@ public class NettyStarter implements ApplicationListener<ContextRefreshedEvent> 
         if (contextRefreshedEvent.getApplicationContext().getParent() == null) {
             try {
                 System.err.println("Netty-Server prepare start");
-                NettyServer.getNettyServerInstance();
+                NettyServer.getNettyServerInstance().start();
                 System.err.println("Netty-Server started");
             } catch (Exception e) {
                 e.printStackTrace();

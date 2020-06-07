@@ -50,5 +50,4 @@ public class UserController {
 
         return JSONResult.build(200, "ok", user);
     }
-
 }
