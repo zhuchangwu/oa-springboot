@@ -1,7 +1,7 @@
 package com.changwu.netty;
 
 public enum ResponseActionEnum {
-    heartAction(1), noticeAction(2);
+    connAction(0),heartAction(1), noticeAction(2);
 
     public Integer code;
     public String desc;
