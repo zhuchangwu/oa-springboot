@@ -28,7 +28,7 @@ public class GrpcFlowCenterClientTests {
 
         // 构建请求消息
         FlowProtos.Flow request = FlowProtos.Flow.newBuilder()
-                .setDepartmentId(1)
+                //.setDepartmentId(1)
                 .setRecordId(2)
                 .setApplicate("changwu")
                 .setFlowType("create Reimbursement flow")
@@ -58,7 +58,7 @@ public class GrpcFlowCenterClientTests {
 
         // 构建请求消息
         FlowProtos.Flow request = FlowProtos.Flow.newBuilder()
-                .setDepartmentId(1)
+               // .setDepartmentId(1)
                 .setRecordId(2)
                 .setApplicate("changwu")
                 .setFlowType("create Reimbursement flow")
@@ -127,7 +127,7 @@ public class GrpcFlowCenterClientTests {
 
         // 构建请求消息
         FlowProtos.Flow request1 = FlowProtos.Flow.newBuilder()
-                .setDepartmentId(1)
+                //.setDepartmentId(1)
                 .setRecordId(2)
                 .setApplicate("changwu")
                 .setFlowType("create Reimbursement flow")
@@ -137,7 +137,7 @@ public class GrpcFlowCenterClientTests {
 
         // 构建请求消息
         FlowProtos.Flow request2 = FlowProtos.Flow.newBuilder()
-                .setDepartmentId(1)
+                //.setDepartmentId(1)
                 .setRecordId(2)
                 .setApplicate("changwu")
                 .setFlowType("create Reimbursement flow")

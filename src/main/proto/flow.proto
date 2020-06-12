@@ -10,7 +10,7 @@ message Flow {
   string flowType = 1;
   map<string, string> roleMap = 2;
   string applicate = 3;
-  int32  departmentId = 4;
+  string  departmentName= 4;
   int32  recordId = 5;
 }
 

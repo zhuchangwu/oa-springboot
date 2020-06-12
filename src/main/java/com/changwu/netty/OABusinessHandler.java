@@ -18,7 +18,6 @@ public class OABusinessHandler extends SimpleChannelInboundHandler<TextWebSocket
     // 存放所有正常状态的websocket连接
     public static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
-
     // 客户端和服务端建立连接后回调
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {

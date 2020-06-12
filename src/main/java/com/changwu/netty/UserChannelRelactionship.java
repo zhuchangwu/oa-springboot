@@ -1,12 +1,15 @@
 package com.changwu.netty;
 
 import io.netty.channel.Channel;
+import org.springframework.stereotype.Component;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 用户和channel之间的关联
  */
+@Component
 public class UserChannelRelactionship {
     private static Map<String, Channel> hashMap = new ConcurrentHashMap<>();
 

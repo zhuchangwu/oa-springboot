@@ -25,7 +25,7 @@ public class GrpcFlowCenterServerTests {
             System.out.println("申请人： " + request.getApplicate());
             System.out.println("流程类型： " + request.getFlowType());
             System.out.println("角色信息： " + request.getRoleMapMap());
-            System.out.println("部门ID： " + request.getDepartmentId());
+            //System.out.println("部门ID： " + request.getDepartmentId());
             System.out.println("记录ID： " + request.getRecordId());
             System.out.println("--------------------接收到客户端的信息--------------------");
 
@@ -50,7 +50,7 @@ public class GrpcFlowCenterServerTests {
             System.out.println("申请人： " + request.getApplicate());
             System.out.println("流程类型： " + request.getFlowType());
             System.out.println("角色信息： " + request.getRoleMapMap());
-            System.out.println("部门ID： " + request.getDepartmentId());
+           // System.out.println("部门ID： " + request.getDepartmentId());
             System.out.println("记录ID： " + request.getRecordId());
             System.out.println("--------------------接收到客户端的信息--------------------");
 
@@ -87,7 +87,7 @@ public class GrpcFlowCenterServerTests {
                     System.out.println("申请人： " + flow.getApplicate());
                     System.out.println("流程类型： " + flow.getFlowType());
                     System.out.println("角色信息： " + flow.getRoleMapMap());
-                    System.out.println("部门ID： " + flow.getDepartmentId());
+                 //   System.out.println("部门ID： " + flow.getDepartmentId());
                     System.out.println("记录ID： " + flow.getRecordId());
                     System.out.println("--------------------接收到客户端的信息--------------------");
                 }

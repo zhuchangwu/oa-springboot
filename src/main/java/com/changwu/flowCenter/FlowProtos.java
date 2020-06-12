@@ -77,10 +77,16 @@ public final class FlowProtos {
         getApplicateBytes();
 
     /**
-     * <code>int32 departmentId = 4;</code>
-     * @return The departmentId.
+     * <code>string departmentName = 4;</code>
+     * @return The departmentName.
      */
-    int getDepartmentId();
+    java.lang.String getDepartmentName();
+    /**
+     * <code>string departmentName = 4;</code>
+     * @return The bytes for departmentName.
+     */
+    com.google.protobuf.ByteString
+        getDepartmentNameBytes();
 
     /**
      * <code>int32 recordId = 5;</code>
@@ -107,6 +113,7 @@ public final class FlowProtos {
     private Flow() {
       flowType_ = "";
       applicate_ = "";
+      departmentName_ = "";
     }
 
     @java.lang.Override
@@ -165,9 +172,10 @@ public final class FlowProtos {
               applicate_ = s;
               break;
             }
-            case 32: {
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              departmentId_ = input.readInt32();
+              departmentName_ = s;
               break;
             }
             case 40: {
@@ -367,14 +375,40 @@ public final class FlowProtos {
       }
     }
 
-    public static final int DEPARTMENTID_FIELD_NUMBER = 4;
-    private int departmentId_;
+    public static final int DEPARTMENTNAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object departmentName_;
     /**
-     * <code>int32 departmentId = 4;</code>
-     * @return The departmentId.
+     * <code>string departmentName = 4;</code>
+     * @return The departmentName.
      */
-    public int getDepartmentId() {
-      return departmentId_;
+    public java.lang.String getDepartmentName() {
+      java.lang.Object ref = departmentName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        departmentName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string departmentName = 4;</code>
+     * @return The bytes for departmentName.
+     */
+    public com.google.protobuf.ByteString
+        getDepartmentNameBytes() {
+      java.lang.Object ref = departmentName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        departmentName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int RECORDID_FIELD_NUMBER = 5;
@@ -413,8 +447,8 @@ public final class FlowProtos {
       if (!getApplicateBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, applicate_);
       }
-      if (departmentId_ != 0) {
-        output.writeInt32(4, departmentId_);
+      if (!getDepartmentNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, departmentName_);
       }
       if (recordId_ != 0) {
         output.writeInt32(5, recordId_);
@@ -444,9 +478,8 @@ public final class FlowProtos {
       if (!getApplicateBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, applicate_);
       }
-      if (departmentId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, departmentId_);
+      if (!getDepartmentNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, departmentName_);
       }
       if (recordId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -473,8 +506,8 @@ public final class FlowProtos {
           other.internalGetRoleMap())) return false;
       if (!getApplicate()
           .equals(other.getApplicate())) return false;
-      if (getDepartmentId()
-          != other.getDepartmentId()) return false;
+      if (!getDepartmentName()
+          .equals(other.getDepartmentName())) return false;
       if (getRecordId()
           != other.getRecordId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -496,8 +529,8 @@ public final class FlowProtos {
       }
       hash = (37 * hash) + APPLICATE_FIELD_NUMBER;
       hash = (53 * hash) + getApplicate().hashCode();
-      hash = (37 * hash) + DEPARTMENTID_FIELD_NUMBER;
-      hash = (53 * hash) + getDepartmentId();
+      hash = (37 * hash) + DEPARTMENTNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDepartmentName().hashCode();
       hash = (37 * hash) + RECORDID_FIELD_NUMBER;
       hash = (53 * hash) + getRecordId();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -664,7 +697,7 @@ public final class FlowProtos {
         internalGetMutableRoleMap().clear();
         applicate_ = "";
 
-        departmentId_ = 0;
+        departmentName_ = "";
 
         recordId_ = 0;
 
@@ -699,7 +732,7 @@ public final class FlowProtos {
         result.roleMap_ = internalGetRoleMap();
         result.roleMap_.makeImmutable();
         result.applicate_ = applicate_;
-        result.departmentId_ = departmentId_;
+        result.departmentName_ = departmentName_;
         result.recordId_ = recordId_;
         onBuilt();
         return result;
@@ -759,8 +792,9 @@ public final class FlowProtos {
           applicate_ = other.applicate_;
           onChanged();
         }
-        if (other.getDepartmentId() != 0) {
-          setDepartmentId(other.getDepartmentId());
+        if (!other.getDepartmentName().isEmpty()) {
+          departmentName_ = other.departmentName_;
+          onChanged();
         }
         if (other.getRecordId() != 0) {
           setRecordId(other.getRecordId());
@@ -1070,32 +1104,78 @@ public final class FlowProtos {
         return this;
       }
 
-      private int departmentId_ ;
+      private java.lang.Object departmentName_ = "";
       /**
-       * <code>int32 departmentId = 4;</code>
-       * @return The departmentId.
+       * <code>string departmentName = 4;</code>
+       * @return The departmentName.
        */
-      public int getDepartmentId() {
-        return departmentId_;
+      public java.lang.String getDepartmentName() {
+        java.lang.Object ref = departmentName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          departmentName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 departmentId = 4;</code>
-       * @param value The departmentId to set.
+       * <code>string departmentName = 4;</code>
+       * @return The bytes for departmentName.
+       */
+      public com.google.protobuf.ByteString
+          getDepartmentNameBytes() {
+        java.lang.Object ref = departmentName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          departmentName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string departmentName = 4;</code>
+       * @param value The departmentName to set.
        * @return This builder for chaining.
        */
-      public Builder setDepartmentId(int value) {
-        
-        departmentId_ = value;
+      public Builder setDepartmentName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        departmentName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 departmentId = 4;</code>
+       * <code>string departmentName = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearDepartmentId() {
+      public Builder clearDepartmentName() {
         
-        departmentId_ = 0;
+        departmentName_ = getDefaultInstance().getDepartmentName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string departmentName = 4;</code>
+       * @param value The bytes for departmentName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDepartmentNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        departmentName_ = value;
         onChanged();
         return this;
       }
@@ -3775,22 +3855,22 @@ public final class FlowProtos {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nflow.proto\022\004Flow\"\255\001\n\004Flow\022\020\n\010flowType\030" +
+      "\n\nflow.proto\022\004Flow\"\257\001\n\004Flow\022\020\n\010flowType\030" +
       "\001 \001(\t\022(\n\007roleMap\030\002 \003(\0132\027.Flow.Flow.RoleM" +
-      "apEntry\022\021\n\tapplicate\030\003 \001(\t\022\024\n\014department" +
-      "Id\030\004 \001(\005\022\020\n\010recordId\030\005 \001(\005\032.\n\014RoleMapEnt" +
-      "ry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"/\n\010Re" +
-      "sponse\022\016\n\006flowId\030\001 \001(\005\022\023\n\013responseMsg\030\002 " +
-      "\001(\t\"4\n\014ResponseList\022$\n\014ResponseList\030\001 \003(" +
-      "\0132\016.Flow.Response\"%\n\rStreamRequest\022\024\n\014re" +
-      "quest_info\030\001 \001(\t\"\'\n\016StreamResponse\022\025\n\rre" +
-      "sponse_info\030\001 \001(\t2\321\001\n\013FlowService\022(\n\nCre" +
-      "ateFlow\022\n.Flow.Flow\032\016.Flow.Response\022+\n\013C" +
-      "reateFlow2\022\n.Flow.Flow\032\016.Flow.Response0\001" +
-      "\022/\n\013CreateFlow3\022\n.Flow.Flow\032\022.Flow.Respo" +
-      "nseList(\001\022:\n\013CreateFlow4\022\023.Flow.StreamRe" +
-      "quest\032\024.Flow.StreamResponse(\001B$\n\026com.cha" +
-      "ngwu.flowCenterB\nFlowProtosb\006proto3"
+      "apEntry\022\021\n\tapplicate\030\003 \001(\t\022\026\n\016department" +
+      "Name\030\004 \001(\t\022\020\n\010recordId\030\005 \001(\005\032.\n\014RoleMapE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"/\n\010" +
+      "Response\022\016\n\006flowId\030\001 \001(\005\022\023\n\013responseMsg\030" +
+      "\002 \001(\t\"4\n\014ResponseList\022$\n\014ResponseList\030\001 " +
+      "\003(\0132\016.Flow.Response\"%\n\rStreamRequest\022\024\n\014" +
+      "request_info\030\001 \001(\t\"\'\n\016StreamResponse\022\025\n\r" +
+      "response_info\030\001 \001(\t2\321\001\n\013FlowService\022(\n\nC" +
+      "reateFlow\022\n.Flow.Flow\032\016.Flow.Response\022+\n" +
+      "\013CreateFlow2\022\n.Flow.Flow\032\016.Flow.Response" +
+      "0\001\022/\n\013CreateFlow3\022\n.Flow.Flow\032\022.Flow.Res" +
+      "ponseList(\001\022:\n\013CreateFlow4\022\023.Flow.Stream" +
+      "Request\032\024.Flow.StreamResponse(\001B$\n\026com.c" +
+      "hangwu.flowCenterB\nFlowProtosb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3801,7 +3881,7 @@ public final class FlowProtos {
     internal_static_Flow_Flow_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Flow_Flow_descriptor,
-        new java.lang.String[] { "FlowType", "RoleMap", "Applicate", "DepartmentId", "RecordId", });
+        new java.lang.String[] { "FlowType", "RoleMap", "Applicate", "DepartmentName", "RecordId", });
     internal_static_Flow_Flow_RoleMapEntry_descriptor =
       internal_static_Flow_Flow_descriptor.getNestedTypes().get(0);
     internal_static_Flow_Flow_RoleMapEntry_fieldAccessorTable = new

@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -49,5 +50,38 @@ public class UserService {
 
     public User findUserByUsername(String username) {
         return userRepository.findUserByUsername(username);
+
+    }
+
+    /**
+     * 根据username获取departmentId
+     *
+     * @param username
+     * @return
+     */
+    public String getDepartmentIdByUsername(String username) {
+        User userByUsername = userRepository.findUserByUsername(username);
+        return userByUsername.getDepartment();
+    }
+
+    /**
+     * 根据username查看，查找他所有的领导信息
+     *
+     * @param username
+     * @return
+     */
+    public HashMap<String, String> findLeadersByUsername(String username) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        // 当前角色
+        User user = userRepository.findUserByUsername(username);
+
+        while (!user.getParentrole().equals("0")) {
+            user = userRepository.findUserByParentrole(user.getParentrole());
+            if (user!=null){
+                hashMap.put(user.getRolesDto(),user.getUsername());
+            }
+        }
+
+        return hashMap;
     }
 }
